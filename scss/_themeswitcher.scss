@@ -1,0 +1,327 @@
+@use "variables" as *;
+
+.theme-switcher {
+  background: $glass;
+  border-radius: $radius;
+  border: 1px solid $teal3;
+  min-width: 320px; // було 560px
+}
+
+.ts-header {
+  padding: $sp-md $sp-lg;
+  border-bottom: 1px solid $border-divider;
+}
+
+.ts-header-spacer {
+  min-width: 32px;
+}
+
+.ts-title {
+  font-size: $font-size-md;
+  color: $text;
+  font-weight: bold;
+}
+
+.ts-back-btn {
+  background: transparent;
+  border-radius: $radius-xs;
+  padding: $sp-xs $sp-sm;
+  color: $text3;
+  margin-right: $sp-xs;
+  min-width: 32px;
+  transition: $transition;
+
+  &:hover {
+    color: $text;
+    background: $teal4;
+  }
+}
+
+.ts-close-btn {
+  background: transparent;
+  border-radius: $radius-xs;
+  padding: $sp-xs $sp-sm;
+  color: $text3;
+  transition: $transition;
+
+  &:hover {
+    color: $text;
+    background: $teal4;
+  }
+}
+
+.ts-body {
+  min-height: 280px;
+}
+
+.ts-page {
+  padding: $sp-sm $sp-lg; // додати горизонтальний padding
+}
+
+.ts-section-label {
+  font-size: $font-size-xs;
+  color: $text3;
+  padding: $sp-sm $sp-md 2px;
+  letter-spacing: 0.07em;
+}
+
+.ts-section-divider {
+  min-height: 1px;
+  background: $border-divider;
+  margin: $sp-xs $sp-md;
+}
+
+.ts-nav-item {
+  background: transparent;
+  border-radius: $radius-sm;
+  padding: $sp-sm $sp-md;
+  transition: $transition;
+  color: $text2;
+
+  &:hover {
+    background: $teal4;
+    color: $text;
+
+    .ts-nav-icon {
+      color: $teal;
+    }
+  }
+
+  &.active {
+    background: $teal3;
+    color: $teal;
+  }
+
+  &.frozen .ts-nav-label {
+    color: $teal2;
+  }
+
+  &.ts-future {
+    opacity: 0.4;
+  }
+}
+
+.ts-nav-icon-wrap {
+  min-width: 3px; // було 6px, тонша лінія виглядає елегантніше
+  min-height: 20px;
+  border-radius: 2px;
+  background: $teal; // було $teal3, тепер повний teal
+  margin-right: $sp-md;
+}
+
+.ts-nav-item {
+  background: transparent;
+  border-radius: $radius-sm;
+  padding: $sp-sm $sp-lg;
+  transition: $transition;
+  color: $text2;
+
+  &:hover {
+    background: $teal4;
+    color: $text;
+  }
+
+  &.active {
+    background: $teal3;
+    color: $teal;
+  }
+
+  &.frozen .ts-nav-label {
+    color: $teal2;
+  }
+
+  &.ts-future {
+    opacity: 0.4;
+  }
+}
+
+.ts-nav-label {
+  font-size: $font-size-md;
+  color: $text2;
+  font-family: $font; // додати
+}
+
+.ts-future-badge {
+  font-size: $font-size-xs;
+  color: $text3;
+  background: $bg3;
+  border-radius: $radius-xs;
+  padding: 1px $sp-xs;
+}
+
+.ts-frozen-icon {
+  color: $teal;
+  font-size: $font-size-xs;
+  font-family: "MesloLGS NF", "Symbols Nerd Font Mono", monospace;
+}
+
+.ts-preset-item {
+  background: transparent;
+  border-radius: $radius-sm;
+  padding: $sp-sm $sp-md;
+  transition: $transition;
+
+  &:hover {
+    background: $teal4;
+
+    .ts-preset-name {
+      color: $text;
+    }
+  }
+
+  &.active {
+    background: $teal3;
+
+    .ts-preset-name {
+      color: $teal;
+    }
+
+    .ts-preset-indicator {
+      background: $teal;
+    }
+  }
+}
+
+.ts-preset-indicator {
+  min-width: 3px;
+  min-height: 24px;
+  border-radius: 2px;
+  background: transparent;
+  margin-right: $sp-md;
+  transition: $transition;
+}
+
+.ts-preset-name {
+  font-size: $font-size-sm;
+  color: $text2;
+}
+
+.ts-reset-label {
+  color: $text3;
+  font-style: italic;
+}
+
+.ts-check {
+  color: $teal;
+  font-size: $font-size-xs;
+  margin-left: $sp-sm;
+  font-family: "MesloLGS NF", "Symbols Nerd Font Mono", monospace;
+}
+
+.ts-applying {
+  font-size: $font-size-xs;
+  color: $teal;
+  padding: $sp-xs $sp-lg;
+  border-top: 1px solid $border-divider;
+}
+
+.ts-wp-page {
+  padding: $sp-sm;
+}
+
+.ts-wp-info {
+  padding: $sp-sm $sp-md;
+  margin-bottom: $sp-xs;
+}
+
+.ts-wp-name {
+  font-size: $font-size-sm;
+  color: $text2;
+}
+
+.ts-wp-divider {
+  min-height: 1px;
+  background: $border-divider;
+  margin: $sp-xs $sp-md;
+}
+
+.ts-wp-action {
+  background: transparent;
+  border-radius: $radius-sm;
+  padding: $sp-md;
+  margin: 2px 0;
+  transition: $transition;
+
+  label {
+    color: $text2;
+  }
+
+  &:hover {
+    background: $teal4;
+
+    label {
+      color: $text;
+    }
+  }
+
+  &:active {
+    background: $teal3;
+  }
+
+  &.ts-wp-action-disabled {
+    opacity: 0.4;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.ts-wp-action-label {
+  font-size: $font-size-sm;
+  color: $text;
+  font-weight: bold;
+
+  &.busy {
+    color: $teal;
+  }
+}
+
+.ts-wp-action-desc {
+  font-size: $font-size-xs;
+  color: $text3;
+}
+
+.ts-wp-save-row {
+  padding: $sp-xs $sp-md $sp-sm;
+}
+
+.ts-wp-save-input {
+  background: $bg2;
+  border-radius: $radius-xs;
+  border: 1px solid $border-divider;
+  padding: $sp-xs $sp-sm;
+  color: $text;
+  font-size: $font-size-sm;
+  font-family: $font;
+  caret-color: $teal;
+
+  &:focus {
+    border-color: $teal;
+    background: $bg3;
+  }
+}
+
+.ts-wp-save-confirm {
+  background: $teal3;
+  border-radius: $radius-xs;
+  padding: $sp-xs $sp-md;
+  color: $teal;
+  font-size: $font-size-sm;
+  transition: $transition;
+
+  &:hover {
+    background: $teal-bg;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.ts-wp-hint {
+  font-size: $font-size-xs;
+  color: $text3;
+  padding: $sp-xs $sp-md;
+  font-style: italic;
+}

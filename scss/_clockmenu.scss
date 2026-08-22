@@ -1,0 +1,88 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.clock-menu {
+  @include popup;
+  min-width: 300px;
+  box-shadow: none;
+  border-radius: $radius;
+  padding: $sp-xl 24px;
+
+  .clock-tabs {
+    .tab-btn {
+      background: $bg2;
+      border: none;
+      border-radius: $radius-sm;
+      padding: $sp-xs $sp-xl;
+      font-size: $font-size-sm;
+      color: $text2;
+      transition: $transition;
+
+      &.active {
+        background: $teal;
+        color: $bg;
+        font-weight: 700;
+      }
+
+      &:hover:not(.active) {
+        background: $teal3;
+        color: $teal2;
+      }
+    }
+  }
+
+  .tab-content {
+    padding: $sp-md 0;
+
+    .big-time {
+      font-size: 48px;
+      font-weight: 700;
+      color: $text;
+      letter-spacing: 2px;
+    }
+
+    .time-input {
+      background: $bg2;
+      border: none;
+      border-radius: $radius-sm;
+      padding: $sp-sm 10px;
+      font-size: $font-size-xl;
+      color: $text;
+      min-width: 60px;
+
+      &:focus {
+        background: $bg3;
+      }
+    }
+
+    .time-sep {
+      font-size: $font-size-xl;
+      color: $text3;
+    }
+
+    .ctrl-btn {
+      background: $teal;
+      border-radius: $radius-sm;
+      padding: $sp-sm $sp-xl;
+      font-size: $font-size;
+      font-weight: 700;
+      color: $bg;
+      transition: $transition;
+
+      &:hover {
+        background: $teal2;
+      }
+
+      &.secondary {
+        background: $bg2;
+        border: none;
+        color: $text2;
+
+        &:hover {
+          background: $bg3;
+          color: $text;
+        }
+      }
+    }
+  }
+}

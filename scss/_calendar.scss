@@ -1,0 +1,105 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.calendar {
+  @include popup;
+  min-width: 300px;
+  box-shadow: none;
+  border-radius: $radius;
+  padding: $sp-xl;
+
+  .cal-nav {
+    margin-bottom: $sp-lg;
+
+    .cal-nav-btn {
+      @include btn-ghost;
+      padding: 0 $sp-sm;
+      font-size: $font-size-xl;
+      color: $text3;
+      min-height: 0;
+
+      &:hover {
+        color: $teal;
+      }
+    }
+
+    .cal-month {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      color: $text;
+    }
+
+    .cal-year {
+      font-size: $font-size-lg;
+      font-weight: 300;
+      color: $text2;
+    }
+  }
+
+  .cal-weekdays {
+    margin-bottom: $sp-xs;
+
+    .cal-weekday {
+      font-size: $font-size-xs;
+      color: $text3;
+      min-width: 34px;
+      min-height: 24px;
+    }
+  }
+
+  .cal-row {
+    .cal-day {
+      font-size: $font-size-sm;
+      color: $text2;
+      min-width: 34px;
+      min-height: 32px;
+      border-radius: 9999px;
+      transition: $transition;
+
+      &:hover:not(.empty):not(.today) {
+        background: $teal4;
+        color: $text;
+      }
+
+      &.today {
+        background: $teal;
+        color: $bg;
+        font-weight: 700;
+      }
+
+      &.empty {
+        color: transparent;
+      }
+
+      &.other-month {
+        color: $text3;
+      }
+    }
+  }
+
+  .cal-clock-section {
+    border-top: 1px solid $border-divider;
+    margin-top: $sp-lg;
+    padding-top: $sp-lg;
+
+    .cal-time-btn {
+      @include btn-ghost;
+      padding: 0;
+      border-radius: $radius;
+    }
+
+    .cal-big-time {
+      font-size: $font-size-3xl;
+      font-weight: 700;
+      color: $text;
+      letter-spacing: 2px;
+    }
+
+    .cal-big-date {
+      font-size: $font-size-sm;
+      font-weight: 300;
+      color: $text2;
+      margin-top: 2px;
+    }
+  }
+}

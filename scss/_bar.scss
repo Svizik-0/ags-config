@@ -1,0 +1,209 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ── Workspaces ────────────────────────────────────────────
+.workspaces-island {
+  @include island;
+  padding: 0 4px;
+
+  .workspace {
+    background: transparent;
+    border: none;
+    color: $text3;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    padding: 0;
+    min-width: 22px;
+    min-height: 22px;
+    border-radius: 9999px;
+    transition: $transition;
+
+    &.active {
+      label {
+        color: $teal;
+      }
+    }
+
+    &:hover:not(.active) {
+      color: $text2;
+      background: $teal4;
+      border-radius: 9999px;
+    }
+  }
+}
+
+.ws-sep {
+  color: $bg2;
+  font-size: 10px;
+  padding: 0;
+  min-width: 1px;
+}
+
+// ── Медіа кнопка ─────────────────────────────────────────
+.media-bar-btn {
+  @include island;
+  padding: 0 $sp-lg;
+  transition: $transition;
+
+  &:hover {
+    background: $bg3;
+  }
+
+  .media-bar-dot {
+    min-width: 5px;
+    min-height: 5px;
+    border-radius: 9999px;
+    background: $teal;
+  }
+
+  .media-bar-label {
+    font-size: $font-size-sm;
+    color: $text2;
+  }
+
+  .media-cava {
+    min-height: 14px; // "доріжка" cava — висота області, можна зменшити ще, напр. до 10-12px
+  }
+
+  .cava-bar {
+    min-width: 5px; // ширина стовпця
+    border-radius: 1px;
+    background-color: $teal; // білий колір
+    transition: min-height 60ms ease-out;
+  }
+}
+
+// ── Clock ─────────────────────────────────────────────────
+.clock-island {
+  @include island;
+  padding: 0 $sp-xl;
+  min-height: $bar-height;
+  transition: $transition;
+
+  &:hover {
+    background: $bg3;
+  }
+
+  .clock-time {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $text;
+    letter-spacing: 0.5px;
+  }
+
+  .clock-sep {
+    font-size: $font-size-sm;
+    color: $dim;
+  }
+
+  .clock-date {
+    font-size: $font-size-md;
+    font-weight: 300;
+    color: $text2;
+  }
+}
+
+// ── System island ─────────────────────────────────────────
+.system-island {
+  @include island;
+  padding: 0;
+
+  .sys-item {
+    padding: 0 $sp-md;
+    min-height: $bar-height;
+    font-size: $font-size-sm;
+    color: $text2;
+    transition: $transition;
+
+    &:hover {
+      background: $teal4;
+      color: $text;
+    }
+
+    .sys-icon {
+      font-size: $font-size-md;
+    }
+  }
+
+  .battery-high {
+    color: $teal;
+  }
+
+  .battery-medium {
+    color: $yellow;
+  }
+
+  .battery-low {
+    color: $red;
+  }
+
+  .battery-charging .battery-icon {
+    color: $teal2;
+  }
+
+  .battery-charge-mark {
+    font-size: 12px;
+    color: $teal;
+    min-width: 12px;
+  }
+
+  .nix-item {
+    color: $teal;
+    font-size: $font-size-xl;
+    padding: 0 $sp-lg;
+    background: $teal4;
+
+    &:hover {
+      background: $teal3;
+      color: $teal2;
+    }
+  }
+}
+
+// ── GPU кнопка ───────────────────────────────────────────
+.gpu-bar-btn {
+  @include island;
+  padding: 0 $sp-md;
+  transition: $transition;
+
+  &:hover {
+    background: $bg3;
+  }
+
+  .gpu-bar-icon {
+    font-size: $font-size-md;
+    color: $text2;
+  }
+}
+
+.gpu-bar-load {
+  font-size: $font-size-sm;
+  color: $text2;
+  font-weight: 600;
+
+  &.mid {
+    color: $yellow;
+  }
+
+  &.high {
+    color: $red;
+  }
+}
+
+.gpu-bar-temp {
+  font-size: $font-size-sm;
+  color: $teal;
+
+  &.warm {
+    color: $yellow;
+  }
+
+  &.hot {
+    color: $red;
+  }
+}
+
+.gpu-bar-sep {
+  font-size: $font-size-xs;
+  color: $dim;
+}

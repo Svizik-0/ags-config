@@ -1,0 +1,209 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.media-window {
+  @include popup;
+  min-width: 420px;
+  box-shadow: none;
+  border-radius: $radius;
+
+  .media-empty {
+    font-size: $font-size-sm;
+    color: $text3;
+    padding: $sp-lg;
+  }
+
+  .media-player-list {
+    .media-player:not(:last-child) {
+      margin-bottom: $sp-md;
+      padding-bottom: $sp-md;
+      border-bottom: 1px solid $border-divider;
+    }
+  }
+
+  .media-player {
+    padding: 6px;
+    border-radius: $radius-xs;
+    transition: $transition;
+
+    &:hover {
+      background: $bg3;
+    }
+
+    .media-player-header {
+      .media-player-source {
+        font-size: $font-size-xs;
+        font-weight: 700;
+        color: $text3;
+        letter-spacing: 0.02em;
+      }
+
+      .media-close-btn {
+        background: transparent;
+        border: none;
+        border-radius: $radius-xs;
+        color: $text3;
+        min-width: 22px;
+        min-height: 22px;
+        font-size: $font-size-md;
+        transition: $transition;
+
+        &:hover {
+          background: $bg3;
+          color: $red;
+        }
+
+        &.stop {
+          color: $dim;
+
+          &:hover {
+            background: $teal4;
+            color: $text2;
+          }
+        }
+      }
+    }
+
+    .media-cava-ring {
+      background: transparent;
+      color: $teal;
+      caret-color: $teal; // ← ось тут керуєш кольором кільця
+    }
+
+    .media-cover {
+      min-width: 64px;
+      min-height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, $bg3, $bg2);
+      background-size: cover;
+      background-position: center;
+
+      .media-cover-icon {
+        color: $text3;
+        font-size: 26px;
+      }
+    }
+
+    .media-title {
+      font-size: $font-size-md;
+      font-weight: 700;
+      color: $text;
+    }
+
+    .media-artist {
+      font-size: $font-size-sm;
+      color: $teal;
+    }
+
+    .media-bottom {
+      margin-top: 4px;
+    }
+
+    // ---- Прогрес з відомою тривалістю ----
+    .media-progress {
+      min-width: 0;
+
+      .media-slider {
+        min-height: 4px;
+
+        // Read-only індикатор прогресу — ручку приховуємо назавжди
+        slider {
+          min-width: 0;
+          min-height: 0;
+          margin: 0;
+          opacity: 0;
+        }
+
+        trough {
+          min-height: 4px;
+          border-radius: 9999px;
+          background: $bg3;
+        }
+
+        highlight {
+          min-height: 4px;
+          border-radius: 9999px;
+          background: $teal;
+        }
+
+        // sensitive={false} не повинен виглядати "вимкненим"
+        &:disabled {
+          opacity: 1;
+
+          trough {
+            background: $bg3;
+          }
+
+          highlight {
+            background: $teal;
+          }
+        }
+      }
+
+      .media-time {
+        font-size: $font-size-xs;
+        color: $text3;
+        margin-top: 2px;
+      }
+    }
+
+    // ---- Стрім без відомої тривалості (напр. Blanket) ----
+    .media-progress.live {
+      min-height: 22px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: $bg3;
+
+      .media-live-dot {
+        font-size: 8px;
+        color: $dim;
+        margin-right: 6px;
+
+        &.playing {
+          color: $teal;
+        }
+      }
+
+      .media-live-text {
+        font-size: $font-size-xs;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: $text3;
+      }
+    }
+
+    // ---- Контроли ----
+    .media-controls {
+      .media-btn {
+        background: $bg2;
+        border-radius: 9999px;
+        min-width: 28px;
+        min-height: 28px;
+        font-size: $font-size-sm;
+        color: $text2;
+        transition: $transition;
+
+        &:hover {
+          background: $teal3;
+          color: $teal;
+        }
+
+        &.active {
+          color: $teal;
+        }
+
+        &.play {
+          background: $teal;
+          color: $bg;
+          min-width: 34px;
+          min-height: 34px;
+          font-size: $font-size-xl;
+
+          &:hover {
+            background: $teal2;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.notif-center {
+  min-width: 360px;
+  background: $bg;
+  border: none;
+  border-radius: $radius;
+  padding: $sp-lg;
+
+  .notif-header {
+    margin-bottom: $sp-md;
+    padding-bottom: $sp-sm;
+    border-bottom: 1px solid $border-divider;
+
+    .notif-title {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      color: $text;
+    }
+  }
+
+  .notif-action-btn {
+    background: $bg2;
+    border: none;
+    border-radius: $radius-sm;
+    padding: 4px 12px;
+    font-size: $font-size-xs;
+    color: $text2;
+    transition: $transition;
+
+    &:hover {
+      background: $teal3;
+      color: $teal;
+    }
+  }
+
+  .notif-empty {
+    font-size: $font-size-sm;
+    color: $text3;
+    padding: $sp-xl 0;
+  }
+
+  .notif-card {
+    background: $bg2;
+    border: none;
+    border-radius: $radius;
+    margin-bottom: $sp-sm;
+    transition: $transition;
+
+    &:hover {
+      background: $bg3;
+    }
+
+    .notif-card-btn {
+      padding: $sp-md $sp-lg;
+      background: transparent;
+    }
+
+    .notif-app-icon {
+      min-width: 38px;
+      min-height: 38px;
+      border-radius: 9999px;
+      background: $teal3;
+    }
+
+    .notif-app {
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $teal;
+    }
+
+    .notif-time {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    .notif-summary {
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: $text;
+    }
+
+    .notif-body-preview,
+    .notif-body {
+      font-size: $font-size-xs;
+      color: $text2;
+    }
+
+    .notif-chevron {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    .notif-expanded {
+      border-top: 1px solid $border-divider;
+      padding: $sp-sm $sp-lg $sp-md;
+
+      .notif-dismiss-btn {
+        background: $bg3;
+        border: none;
+        border-radius: $radius-sm;
+        padding: 6px 16px;
+        color: $text2;
+        font-size: $font-size-sm;
+
+        &:hover {
+          background: rgba(234, 105, 98, 0.15);
+          color: $red;
+        }
+      }
+    }
+  }
+}
+
+// ── Popup сповіщення (по центру) ─────────────────────────
+.notif-popup-list {
+  padding: $sp-sm;
+
+  .notif-popup-card {
+    background: $bg1;
+    border: none;
+    border-radius: $radius;
+    padding: $sp-md;
+    margin-bottom: $sp-xs;
+    //box-shadow: $shadow;
+    min-width: 360px;
+
+    .notif-app {
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $teal;
+    }
+
+    .notif-time {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    .notif-summary {
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: $text;
+    }
+
+    .notif-body {
+      font-size: $font-size-xs;
+      color: $text2;
+    }
+
+    .notif-close {
+      padding: 4px;
+      color: $text3;
+      border-radius: $radius-sm;
+      background: transparent;
+
+      &:hover {
+        background: rgba(234, 105, 98, 0.15);
+        color: $red;
+      }
+    }
+  }
+}

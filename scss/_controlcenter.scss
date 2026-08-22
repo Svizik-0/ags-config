@@ -1,0 +1,509 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.control-center {
+  @include popup;
+  min-width: 300px;
+  box-shadow: none;
+  border-radius: $radius;
+  padding: $sp-lg;
+
+  // ── Slider cards ─────────────────────────────────────
+  .cc-card {
+    background: $bg2;
+    border-radius: $radius-sm;
+    padding: $sp-md $sp-lg;
+  }
+
+  // ── Toggles: WiFi / BT / Ethernet (icon-only) ────────
+  .cc-toggle {
+    background: $bg2;
+    border: none;
+    border-radius: $radius;
+    min-height: 44px;
+    padding: 0 $sp-lg;
+    transition: $transition;
+
+    .cc-toggle-icon {
+      font-size: 18px;
+      color: $text3;
+    }
+
+    .cc-toggle-label {
+      font-size: $font-size-sm;
+      color: $text3;
+    }
+
+    &.active {
+      background: $teal3;
+
+      .cc-toggle-icon,
+      .cc-toggle-label {
+        color: $teal;
+      }
+    }
+
+    &:hover:not(.active) {
+      background: $bg3;
+    }
+  }
+
+  // ── BT / WiFi devices list ────────────────────────────
+  .cc-bt-device {
+    @include btn-ghost;
+    border-radius: $radius-sm;
+    padding: $sp-xs $sp-sm;
+
+    .cc-bt-icon {
+      font-size: $font-size-md;
+      color: $text3;
+      min-width: 24px;
+    }
+
+    .cc-bt-name {
+      font-size: $font-size-sm;
+      color: $text2;
+    }
+
+    .cc-bt-connected {
+      font-size: $font-size-sm;
+      color: $teal;
+    }
+
+    &.connected {
+      background: $teal4;
+
+      .cc-bt-name {
+        color: $teal;
+      }
+    }
+  }
+
+  .cc-bt-empty {
+    font-size: $font-size-sm;
+    color: $text3;
+    padding: $sp-xs $sp-sm;
+  }
+
+  // ── Dividers ──────────────────────────────────────────
+  .cc-divider {
+    min-height: 1px;
+    background: $border-divider;
+  }
+
+  .cc-divider-soft {
+    opacity: 0.5;
+  }
+
+  // ── Power buttons ─────────────────────────────────────
+  .cc-power-btn {
+    background: $bg2;
+    border: none;
+    border-radius: $radius-sm;
+    min-height: 34px;
+    transition: $transition;
+
+    .cc-power-icon {
+      font-size: 16px;
+      color: $text2;
+    }
+
+    &:hover {
+      background: $teal3;
+
+      .cc-power-icon {
+        color: $teal;
+      }
+    }
+  }
+
+  // ── Slider rows ───────────────────────────────────────
+  .cc-row {
+    .cc-row-icon {
+      font-size: 17px;
+      color: $text3;
+      min-width: 26px;
+    }
+
+    // kept for app streams (mute click)
+    .cc-row-icon-btn {
+      font-size: 17px;
+      color: $text3;
+      min-width: 26px;
+      background: transparent;
+      border-radius: $radius-xs;
+
+      &:hover {
+        color: $teal;
+      }
+    }
+
+    .cc-row-title {
+      font-size: $font-size-sm;
+      color: $text2;
+    }
+
+    .cc-row-value {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    // ── Main slider ──────────────────────────────────────
+    .cc-slider {
+      min-height: 8px;
+
+      trough {
+        min-height: 8px;
+        border-radius: 9999px;
+        background: $bg3;
+      }
+
+      highlight {
+        min-height: 8px;
+        border-radius: 9999px;
+        background: $teal;
+      }
+
+      slider {
+        min-width: 16px;
+        min-height: 16px;
+        margin: -4px 0;
+        background: transparent;
+        border-radius: 9999px;
+        transition: background 150ms ease;
+      }
+
+      &:hover slider {
+        background: $teal2;
+      }
+    }
+  }
+
+  // ── Mic slider (peach accent) ─────────────────────────
+  .cc-slider-mic {
+    min-height: 8px;
+
+    trough {
+      min-height: 8px;
+      border-radius: 9999px;
+      background: $bg3;
+    }
+
+    highlight {
+      min-height: 8px;
+      border-radius: 9999px;
+      background: $peach;
+    }
+
+    slider {
+      min-width: 16px;
+      min-height: 16px;
+      margin: -4px 0;
+      background: transparent;
+      border-radius: 9999px;
+      transition: background 150ms ease;
+    }
+
+    &:hover slider {
+      background: $peach;
+      opacity: 0.7;
+    }
+  }
+
+  // ── Night mode slider (yellow/warm accent) ────────────
+  .cc-slider-warm {
+    min-height: 8px;
+
+    trough {
+      min-height: 8px;
+      border-radius: 9999px;
+      background: $bg3;
+    }
+
+    highlight {
+      min-height: 8px;
+      border-radius: 9999px;
+      background: $yellow;
+    }
+
+    slider {
+      min-width: 16px;
+      min-height: 16px;
+      margin: -4px 0;
+      background: transparent;
+      border-radius: 9999px;
+      transition: background 150ms ease;
+    }
+
+    &:hover slider {
+      background: $yellow;
+      opacity: 0.7;
+    }
+  }
+
+  // ── Night mode: поле вводу часу ───────────────────────
+  .cc-time-entry {
+    background: $bg3;
+    border: none;
+    border-radius: $radius-xs;
+    color: $text;
+    font-size: $font-size-sm;
+    min-height: 28px;
+    min-width: 56px;
+    padding: 0 $sp-sm;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  // ── Night mode: перемикач-пігулка ──────────────────────
+  .cc-switch {
+    background: $bg3;
+    border: none;
+    border-radius: 9999px;
+    min-width: 38px;
+    min-height: 22px;
+    padding: 3px;
+    transition: $transition;
+
+    .cc-switch-knob {
+      min-width: 16px;
+      min-height: 16px;
+      border-radius: 9999px;
+      background: $text3;
+      transition: $transition;
+    }
+
+    &.on {
+      background: $teal3;
+
+      .cc-switch-knob {
+        background: $teal;
+      }
+    }
+
+    &:hover {
+      background: $bg4;
+    }
+
+    &.on:hover {
+      background: $teal3;
+    }
+  }
+
+  // ── Night mode: блок розкладу ──────────────────────────
+  .cc-schedule-header {
+    padding: 2px 0;
+  }
+
+  .cc-schedule-times {
+    background: $bg2;
+    border-radius: $radius-sm;
+    padding: $sp-sm $sp-md;
+  }
+
+  .cc-schedule-row {
+    padding: 4px 0;
+  }
+
+  .cc-time-entry {
+    background: $bg3;
+    border: none;
+    border-radius: $radius-xs;
+    color: $text;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    min-height: 28px;
+    min-width: 60px;
+    padding: 0 $sp-sm;
+
+    &:focus {
+      border: none;
+      box-shadow: 0 0 0 1px $teal;
+    }
+  }
+
+  // ── App streams heading ───────────────────────────────
+  .cc-streams-heading {
+    font-size: $font-size-xs;
+    font-weight: 700;
+    color: $text3;
+    letter-spacing: 0.06em;
+    padding-left: 2px;
+  }
+
+  // ── Section title ─────────────────────────────────────
+  .cc-section-title {
+    font-size: $font-size-sm;
+    font-weight: 700;
+    color: $text3;
+  }
+
+  // ── Scan / Manage buttons ─────────────────────────────
+  .cc-scan-btn {
+    background: transparent;
+    border-radius: $radius-xs;
+    font-size: $font-size-md;
+    color: $text3;
+    padding: 2px $sp-xs;
+    transition: $transition;
+
+    &:hover {
+      color: $teal;
+    }
+  }
+
+  .cc-manage-btn {
+    background: $bg2;
+    border: none;
+    border-radius: $radius-xs;
+    font-size: $font-size-xs;
+    color: $text3;
+    padding: 2px $sp-sm;
+    transition: $transition;
+
+    &:hover {
+      background: $bg3;
+      color: $teal;
+    }
+  }
+
+  // ── WiFi network list items ───────────────────────────
+  .cc-wifi-network {
+    background: transparent;
+    border: none;
+    border-radius: $radius-sm;
+    padding: $sp-xs $sp-sm;
+    transition: $transition;
+
+    .cc-wifi-signal-icon {
+      font-size: 16px;
+      color: $text3;
+      min-width: 22px;
+    }
+
+    .cc-wifi-meta {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    .cc-wifi-lock {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+
+    .cc-wifi-connecting {
+      font-size: $font-size-sm;
+      color: $teal;
+    }
+
+    &:hover {
+      background: $bg3;
+
+      .cc-wifi-signal-icon {
+        color: $text2;
+      }
+    }
+
+    &.connected {
+      background: $teal4;
+
+      .cc-wifi-signal-icon,
+      .cc-bt-name {
+        color: $teal;
+      }
+    }
+  }
+
+  // ── WiFi status bar ───────────────────────────────────
+  .cc-wifi-status-bar {
+    padding: $sp-xs $sp-sm;
+    border-radius: $radius-xs;
+    background: $bg2;
+
+    .cc-status-ok {
+      font-size: $font-size-sm;
+      color: $teal;
+    }
+
+    .cc-status-err {
+      font-size: $font-size-sm;
+      color: $peach;
+    }
+  }
+
+  .cc-wifi-status {
+    font-size: $font-size-xs;
+    color: $text3;
+  }
+
+  // ── WiFi password dialog ──────────────────────────────
+  .cc-wifi-dialog {
+    background: $bg2;
+    border-radius: $radius-sm;
+    padding: $sp-md $sp-lg;
+
+    .cc-password-field {
+      background: $bg3;
+      border-radius: $radius-sm;
+      padding: 0 $sp-sm;
+
+      .cc-password-entry {
+        background: transparent;
+        border: none;
+        color: $text;
+        font-size: $font-size-sm;
+        min-height: 34px;
+
+        &:focus {
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      .cc-password-eye {
+        background: transparent;
+        border: none;
+        border-radius: $radius-xs;
+        font-size: $font-size-md;
+        color: $text3;
+        padding: 2px $sp-xs;
+        transition: $transition;
+
+        &:hover {
+          color: $teal;
+        }
+      }
+    }
+
+    .cc-dialog-btn {
+      border: none;
+      border-radius: $radius-sm;
+      min-height: 32px;
+      font-size: $font-size-sm;
+      transition: $transition;
+
+      &.cc-dialog-cancel {
+        background: $bg3;
+        color: $text3;
+
+        &:hover {
+          background: $bg2;
+          color: $text2;
+        }
+      }
+
+      &.cc-dialog-connect {
+        background: $teal3;
+        color: $teal;
+
+        &:hover {
+          background: $teal;
+          color: $bg;
+        }
+      }
+    }
+  }
+}

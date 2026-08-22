@@ -1,0 +1,108 @@
+@use "variables" as *;
+
+.wallpaper-menu {
+  background: transparent;
+}
+
+.wallpaper-container {
+  background: $glass;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 20px;
+}
+
+// Індикатор генерації теми
+.wp-extracting-label {
+  font-family: $font;
+  font-size: $font-size-sm;
+  color: $teal;
+  padding: $sp-xs $sp-md;
+  margin-bottom: $sp-xs;
+}
+
+// Ховаємо scrollbar
+.wp-scroll scrollbar {
+  background: transparent;
+  border: none;
+  opacity: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.wp-scroll undershoot.left,
+.wp-scroll undershoot.right {
+  background: transparent;
+  box-shadow: none;
+}
+
+// ── Обгортка мініатюра + extract ─────────────────────────
+.wp-thumb-wrap {
+  border-radius: $radius-sm;
+
+  .wp-extract-btn {
+    opacity: 0;
+    min-height: 0;
+    padding: 0;
+    border-radius: 0 0 $radius-xs $radius-xs;
+    background: transparent;
+    transition: $transition;
+    color: $teal;
+    font-size: $font-size-xs;
+    font-family: $font;
+  }
+
+  &:hover .wp-extract-btn {
+    opacity: 1;
+    min-height: 22px;
+    padding: 2px $sp-sm;
+    background: $teal-bg;
+  }
+
+  .wp-extract-btn:disabled {
+    opacity: 0.35;
+    color: $text3;
+  }
+}
+
+// ── Мініатюри ────────────────────────────────────────────
+.wp-thumb {
+  background: $bg2;
+  border: 2px solid transparent;
+  border-radius: $radius-sm $radius-sm 0 0;
+  padding: 6px;
+  transition: $transition;
+
+  drawingarea {
+    border-radius: $radius-xs;
+  }
+
+  &:hover {
+    background: $bg3;
+    border-color: rgba(44, 147, 150, 0.5);
+  }
+
+  &:active {
+    background: $teal3;
+  }
+
+  &.active {
+    border-color: $teal;
+    background: $teal4;
+  }
+
+  &.focused:not(.active) {
+    border-color: $text3;
+  }
+
+  &.active.focused {
+    border-color: $teal;
+    background: $teal4;
+  }
+}
+
+.wp-thumb-label {
+  font-family: $font;
+  font-size: $font-size-xs;
+  color: $text3;
+  padding: 0 2px;
+}

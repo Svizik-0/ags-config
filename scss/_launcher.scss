@@ -1,0 +1,134 @@
+@use "variables" as *;
+
+.launcher-overlay {
+  min-width: 520px;
+}
+
+// ── Search bar ────────────────────────────────────────────
+.launcher-search-wrap {
+  background: $glass;
+  border-radius: $radius;
+  border: 1px solid $teal3;
+  padding: $sp-md $sp-lg;
+  margin-bottom: $sp-sm;
+}
+
+.launcher-search-icon {
+  color: $teal;
+  font-size: $font-size-lg;
+  margin-right: $sp-md;
+  opacity: 0.85;
+}
+
+.launcher-entry {
+  background: transparent;
+  border: none;
+  //box-shadow: none;
+  color: $text;
+  font-family: $font;
+  font-size: $font-size-md;
+  caret-color: $teal;
+  min-width: 0;
+}
+
+// ── Results list ──────────────────────────────────────────
+.launcher-results {
+  background: $glass;
+  border-radius: $radius;
+  border: 1px solid $teal3;
+  padding: $sp-sm;
+}
+
+.launcher-item {
+  background: transparent;
+  border-radius: $radius-sm;
+  padding: $sp-md $sp-lg;
+  transition: $transition;
+}
+
+.launcher-item:hover {
+  background: $teal3;
+}
+
+.launcher-item:hover .launcher-item-name {
+  color: $teal2;
+}
+
+.launcher-item:active {
+  background: rgba(44, 147, 150, 0.28);
+}
+
+.launcher-item-icon {
+  font-size: 28px;
+  min-width: 32px;
+  min-height: 32px;
+
+}
+
+.launcher-item-name {
+  font-family: $font;
+  font-size: $font-size-md;
+  color: $text;
+  transition: $transition;
+}
+
+.launcher-item-desc {
+  font-family: $font;
+  font-size: $font-size-sm;
+  color: $text3;
+}
+
+// ── Empty state ───────────────────────────────────────────
+.launcher-empty {
+  background: $glass;
+  border-radius: $radius;
+  border: 1px solid $border-divider;
+  padding: $sp-xl $sp-lg;
+  color: $text3;
+  font-family: $font;
+  font-size: $font-size-sm;
+}
+
+.launcher-empty image {
+  color: $text3;
+  opacity: 0.5;
+}
+
+// ── Pinned apps ───────────────────────────────────────────
+.launcher-pinned {
+  padding: $sp-md $sp-lg;
+  margin-bottom: $sp-sm;
+  background: $glass;
+  border-radius: $radius;
+  border: 1px solid $teal3;
+}
+
+.launcher-section-label {
+  font-family: $font;
+  font-size: $font-size-xs;
+  color: $text3;
+  margin-bottom: $sp-sm;
+}
+
+.launcher-pinned-item {
+  background: $bg3;
+  border-radius: $radius-sm;
+  padding: $sp-md;
+  transition: $transition;
+}
+
+.launcher-pinned-item:hover {
+  background: $teal3;
+}
+
+.launcher-pinned-item icon {
+  font-size: 28px;
+}
+
+.launcher-item.selected {
+  background: $teal3;
+}
+
+.launcher-item.selected .launcher-item-name {
+  color: $teal2;
+}

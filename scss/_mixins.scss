@@ -1,0 +1,48 @@
+@use "variables" as *;
+
+@mixin island {
+  background: $bg;
+  border: none;
+  border-radius: $radius;
+  min-height: $bar-height;
+}
+
+@mixin popup {
+  background: $bg;
+  border: none;
+  border-radius: $radius;
+  box-shadow: none;
+  padding: $sp-lg;
+}
+
+@mixin btn-ghost {
+  background: transparent;
+  border-radius: $radius-xs;
+  padding: 2px $sp-md;
+  transition: $transition;
+  color: $text2;
+
+  &:hover {
+    background: $teal3;
+    color: $teal2;
+  }
+}
+
+@mixin btn-accent {
+  background: $teal3;
+  border: none;
+  border-radius: $radius-xs;
+  padding: 2px $sp-md;
+  color: $teal;
+  transition: $transition;
+
+  &:hover {
+    background: rgba(44, 147, 150, 0.28);
+  }
+}
+
+@mixin surface {
+  background: $bg2;
+  border: none;
+  border-radius: $radius-xs;
+}

@@ -1,0 +1,96 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.sysinfo {
+  @include popup;
+  min-width: 300px;
+  box-shadow: none;
+  border-radius: $radius;
+  padding: $sp-lg; // або потрібне значення з variables.scss
+
+  .si-header {
+    .si-title {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      color: $text;
+    }
+
+    .si-uptime {
+      font-size: $font-size-xs;
+      color: $text3;
+    }
+  }
+
+  .si-divider {
+    min-height: 1px;
+    background: $border-divider;
+  }
+
+  .si-section {
+    .si-section-title {
+      font-size: $font-size-xs;
+      font-weight: 700;
+      color: $text3;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .si-row {
+    .si-icon {
+      font-size: $font-size-md;
+      color: $text3;
+      min-width: 24px;
+    }
+
+    .si-label {
+      font-size: $font-size-sm;
+      color: $text2;
+    }
+
+    .si-value {
+      font-size: $font-size-sm;
+      color: $teal;
+      font-weight: 600;
+    }
+  }
+
+  .si-bar-row {
+    .si-icon {
+      font-size: $font-size-md;
+      color: $text3;
+      min-width: 24px;
+    }
+
+    .si-label {
+      font-size: $font-size-sm;
+      color: $text2;
+    }
+
+    .si-value {
+      font-size: $font-size-sm;
+      color: $teal;
+      font-weight: 600;
+
+      &.warm {
+        color: $yellow;
+      }
+
+      &.hot {
+        color: $red;
+      }
+    }
+
+    // progress bar via box (як у тебе в SysInfo/index.tsx)
+    .si-progress-track {
+      min-height: 4px;
+      border-radius: 9999px;
+      background: $bg3;
+    }
+
+    .si-progress-fill {
+      min-height: 4px;
+      border-radius: 9999px;
+      background: $teal;
+    }
+  }
+}

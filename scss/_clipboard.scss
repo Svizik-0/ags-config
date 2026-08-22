@@ -1,0 +1,116 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.clipboard {
+  @include popup;
+  min-width: 300px;
+  box-shadow: none;
+  border-radius: $radius;
+  padding: $sp-lg;
+
+  .clip-header {
+    .clip-icon {
+      font-size: $font-size-xl;
+      color: $teal;
+    }
+
+    .clip-title {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      color: $text;
+    }
+
+    .clip-clear-btn {
+      background: transparent;
+      border: none;
+      border-radius: $radius-xs;
+      font-size: $font-size-lg;
+      color: $text3;
+      padding: 2px $sp-sm;
+      transition: $transition;
+
+      &:hover {
+        background: rgba(234, 105, 98, 0.15);
+        color: $red;
+      }
+    }
+  }
+
+  .clip-search {
+    background: $bg2;
+    border: none;
+    border-radius: $radius-sm;
+    padding: $sp-sm $sp-md;
+    font-size: $font-size-sm;
+    color: $text;
+    caret-color: $teal;
+
+    &:focus {
+      background: $bg3;
+    }
+  }
+
+  .clip-empty {
+    font-size: $font-size-sm;
+    color: $text3;
+    padding: $sp-xl;
+  }
+
+  .clip-item {
+    background: $bg2;
+    border-radius: $radius-sm;
+    padding: 2px 2px 2px $sp-sm;
+    transition: $transition;
+
+    .clip-select-btn {
+      background: transparent;
+      border: none;
+      border-radius: $radius-xs;
+      padding: $sp-sm $sp-sm $sp-sm 0;
+      transition: $transition;
+    }
+
+    .clip-preview {
+      font-size: $font-size-sm;
+      color: $text2;
+      font-family: $font;
+    }
+
+    .clip-copy-btn,
+    .clip-delete-btn {
+      background: transparent;
+      border: none;
+      border-radius: $radius-xs;
+      font-size: $font-size-sm;
+      color: transparent;
+      padding: $sp-sm 4px;
+      transition: $transition;
+    }
+
+    &:hover {
+      background: $bg3;
+
+      .clip-preview {
+        color: $text;
+      }
+
+      .clip-copy-btn {
+        color: $text3;
+
+        &:hover {
+          background: rgba(137, 220, 235, 0.15);
+          color: $teal;
+        }
+      }
+
+      .clip-delete-btn {
+        color: $text3;
+
+        &:hover {
+          background: rgba(234, 105, 98, 0.15);
+          color: $red;
+        }
+      }
+    }
+  }
+}
