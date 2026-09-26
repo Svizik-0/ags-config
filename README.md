@@ -16,32 +16,6 @@
 - **Theme Switcher** — перемикач тем
 - **Night Mode** — нічний режим
 
-## Структура
-
-.
-├── app.ts                 # Точка входу
-├── style.scss             # Головний файл стилів
-├── pinned-apps.json       # Закріплені додатки в лаунчері
-├── widget/                # Усі віджети
-│   ├── Bar/
-│   ├── Launcher/
-│   ├── ControlCenter/
-│   ├── NotifCenter/
-│   ├── NotifPopup/
-│   ├── MediaPlayer/
-│   ├── Calendar/
-│   ├── ClockMenu/
-│   ├── SysInfo/
-│   ├── Clipboard/
-│   ├── Wallpaper/
-│   └── ThemeSwitcher/
-├── services/              # Сервіси
-│   ├── nightmode.ts
-│   ├── wallpaper.ts
-│   └── windows.ts
-├── lib/                   # Утиліти, іконки, типи
-└── scss/                  # Стилі окремих модулів
-
 
 ## Вимоги
 
